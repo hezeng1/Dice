@@ -14,36 +14,90 @@ import java.io.IOException;
 
 public class Dice extends PApplet {
 
-int x = 0;
-int y = 0;
 public void setup()
 {
-  size(500,500); 
+  size(500,500);
+  noLoop(); 
 }
 public void draw()
 {
 	background(0);
-    Die bob = new Die(20,20);
-    bob.show();
+    for(int x = 0; x<=500; x+=50)
+    {
+    	for(int y = 0; y<=500; y+=50)
+    	{
+        Die bob = new Die(x,y);
+        bob.show();
+        }
+    }
 }
 public void mousePressed()
 {
 	redraw();
 }
-class Die //models one single dice cube
+class Die 
 {
-	//variable declarations here
-	Die(int x, int y) //constructor
+	int myX, myY,h; 
+	Die(int x, int y)
 	{
-		//variable initializations here
+	   
+	  myX = x;
+	  myY = y; 
+	  h = (int)(Math.random()*6)+1;
 	}
 	public void roll()
 	{
-		//your code here
-	}
+      
+    }
 	public void show()
 	{
-	  rect(x,y,50,50);
+	  fill(255,51,51,150);
+	  rect(myX,myY,50,50,7);
+      if(h==1)
+	 {
+	 	fill(0);
+	 	ellipse(myX+25,myY+25,10,10); 
+	 }
+	 if(h==2)
+	 {
+	 	fill(0);
+	 	ellipse(myX+12.5f,myY+12.5f,10,10);
+	 	ellipse(myX+37.5f,myY+37.5f,10,10);
+	 }
+	 if(h==3)
+	 {
+	 	fill(0);
+	 	ellipse(myX+12.5f,myY+12.5f,10,10);
+	 	ellipse(myX+37.5f,myY+37.5f,10,10);
+	 	ellipse(myX+25,myY+25,10,10);
+	 }
+	 if(h==4)
+	 {
+	 	fill(0);
+	 	ellipse(myX+12.5f,myY+12.5f,10,10);
+	 	ellipse(myX+37.5f,myY+37.5f,10,10);
+	 	ellipse(myX+37.5f,myY+12.5f,10,10);
+	 	ellipse(myX+12.5f,myY+37.5f,10,10);
+     }
+     if(h==5)
+     {
+     	fill(0);
+	 	ellipse(myX+12.5f,myY+12.5f,10,10);
+	 	ellipse(myX+37.5f,myY+37.5f,10,10);
+	 	ellipse(myX+37.5f,myY+12.5f,10,10);
+	 	ellipse(myX+12.5f,myY+37.5f,10,10);
+	 	ellipse(myX+25,myY+25,10,10);
+     }
+     if(h==6)
+     {
+     	fill(0);
+	 	ellipse(myX+12.5f,myY+12.5f,10,10);
+	 	ellipse(myX+37.5f,myY+37.5f,10,10);
+	 	ellipse(myX+37.5f,myY+12.5f,10,10);
+	 	ellipse(myX+12.5f,myY+37.5f,10,10);
+	 	ellipse(myX+12.5f,myY+25,10,10);
+	 	ellipse(myX+37.5f,myY+25,10,10);
+     }
 	}
 }
   static public void main(String[] passedArgs) {
