@@ -1,3 +1,4 @@
+int sum = 0;
 void setup()
 {
   size(500,500);
@@ -14,10 +15,14 @@ void draw()
         bob.show();
         }
     }
+    fill(255);
+    textSize(30);
+    text("Total:"+sum,180,250);
 }
 void mousePressed()
 {
 	redraw();
+	 sum = 0;
 }
 class Die 
 {
@@ -31,7 +36,7 @@ class Die
 	}
 	void roll()
 	{
-      
+       
     }
 	void show()
 	{
@@ -41,12 +46,15 @@ class Die
 	 {
 	 	fill(0);
 	 	ellipse(myX+25,myY+25,10,10); 
+	 	sum+=1; 
+	 	 
 	 }
 	 if(h==2)
 	 {
 	 	fill(0);
 	 	ellipse(myX+12.5,myY+12.5,10,10);
 	 	ellipse(myX+37.5,myY+37.5,10,10);
+	 	sum+=2;
 	 }
 	 if(h==3)
 	 {
@@ -54,6 +62,7 @@ class Die
 	 	ellipse(myX+12.5,myY+12.5,10,10);
 	 	ellipse(myX+37.5,myY+37.5,10,10);
 	 	ellipse(myX+25,myY+25,10,10);
+	 	sum+=3;
 	 }
 	 if(h==4)
 	 {
@@ -62,7 +71,8 @@ class Die
 	 	ellipse(myX+37.5,myY+37.5,10,10);
 	 	ellipse(myX+37.5,myY+12.5,10,10);
 	 	ellipse(myX+12.5,myY+37.5,10,10);
-     }
+	 	sum+=4;
+	 }
      if(h==5)
      {
      	fill(0);
@@ -71,7 +81,8 @@ class Die
 	 	ellipse(myX+37.5,myY+12.5,10,10);
 	 	ellipse(myX+12.5,myY+37.5,10,10);
 	 	ellipse(myX+25,myY+25,10,10);
-     }
+	 	sum+=5;
+	 }
      if(h==6)
      {
      	fill(0);
@@ -81,6 +92,7 @@ class Die
 	 	ellipse(myX+12.5,myY+37.5,10,10);
 	 	ellipse(myX+12.5,myY+25,10,10);
 	 	ellipse(myX+37.5,myY+25,10,10);
-     }
-	}
+	 	sum+=6;
+	 }
+   }
 }

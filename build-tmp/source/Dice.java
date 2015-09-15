@@ -14,9 +14,10 @@ import java.io.IOException;
 
 public class Dice extends PApplet {
 
+int sum = 0;
 public void setup()
 {
-  size(500,500);
+  
   noLoop(); 
 }
 public void draw()
@@ -30,10 +31,14 @@ public void draw()
         bob.show();
         }
     }
+    fill(255);
+    textSize(30);
+    text("Total:"+sum,180,250);
 }
 public void mousePressed()
 {
 	redraw();
+	 sum = 0;
 }
 class Die 
 {
@@ -47,7 +52,7 @@ class Die
 	}
 	public void roll()
 	{
-      
+       
     }
 	public void show()
 	{
@@ -57,12 +62,15 @@ class Die
 	 {
 	 	fill(0);
 	 	ellipse(myX+25,myY+25,10,10); 
+	 	sum+=1; 
+	 	 
 	 }
 	 if(h==2)
 	 {
 	 	fill(0);
 	 	ellipse(myX+12.5f,myY+12.5f,10,10);
 	 	ellipse(myX+37.5f,myY+37.5f,10,10);
+	 	sum+=2;
 	 }
 	 if(h==3)
 	 {
@@ -70,6 +78,7 @@ class Die
 	 	ellipse(myX+12.5f,myY+12.5f,10,10);
 	 	ellipse(myX+37.5f,myY+37.5f,10,10);
 	 	ellipse(myX+25,myY+25,10,10);
+	 	sum+=3;
 	 }
 	 if(h==4)
 	 {
@@ -78,7 +87,8 @@ class Die
 	 	ellipse(myX+37.5f,myY+37.5f,10,10);
 	 	ellipse(myX+37.5f,myY+12.5f,10,10);
 	 	ellipse(myX+12.5f,myY+37.5f,10,10);
-     }
+	 	sum+=4;
+	 }
      if(h==5)
      {
      	fill(0);
@@ -87,7 +97,8 @@ class Die
 	 	ellipse(myX+37.5f,myY+12.5f,10,10);
 	 	ellipse(myX+12.5f,myY+37.5f,10,10);
 	 	ellipse(myX+25,myY+25,10,10);
-     }
+	 	sum+=5;
+	 }
      if(h==6)
      {
      	fill(0);
@@ -97,9 +108,11 @@ class Die
 	 	ellipse(myX+12.5f,myY+37.5f,10,10);
 	 	ellipse(myX+12.5f,myY+25,10,10);
 	 	ellipse(myX+37.5f,myY+25,10,10);
-     }
-	}
+	 	sum+=6;
+	 }
+   }
 }
+  public void settings() {  size(500,500); }
   static public void main(String[] passedArgs) {
     String[] appletArgs = new String[] { "Dice" };
     if (passedArgs != null) {
